@@ -3,7 +3,6 @@
 //  QAUITests
 //
 //  Created by Shawn Roller on 12/15/17.
-//  Copyright © 2017 JustFab. All rights reserved.
 //
 
 #import "NewPickingUITests.h"
@@ -27,8 +26,8 @@
     
     // Select the new Pick tool
     XCUIElementQuery *tablesQuery = app.tables;
-    [tablesQuery/*@START_MENU_TOKEN@*/.staticTexts[@"Outbound"]/*[[".cells.staticTexts[@\"Outbound\"]",".staticTexts[@\"Outbound\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/ tap];
-    [tablesQuery/*@START_MENU_TOKEN@*/.staticTexts[@"Pick (New)"]/*[[".cells.staticTexts[@\"Pick (New)\"]",".staticTexts[@\"Pick (New)\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/ tap];
+    [tablesQuery.staticTexts[@"Outbound"];
+     [tablesQuery.staticTexts[@"Pick (New)"];
     
     // Wait for the Pick Types modal to appear
     XCUIElement *pickTypesModal = app.staticTexts[@"Pick Types"];
@@ -85,8 +84,8 @@
     
     // Select the new Pick tool
     XCUIElementQuery *tablesQuery = app.tables;
-    [tablesQuery/*@START_MENU_TOKEN@*/.staticTexts[@"Outbound"]/*[[".cells.staticTexts[@\"Outbound\"]",".staticTexts[@\"Outbound\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/ tap];
-    [tablesQuery/*@START_MENU_TOKEN@*/.staticTexts[@"Pick (New)"]/*[[".cells.staticTexts[@\"Pick (New)\"]",".staticTexts[@\"Pick (New)\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/ tap];
+    [tablesQuery.staticTexts[@"Outbound"];
+     [tablesQuery.staticTexts[@"Pick (New)"];
     
     // Wait for the Pick Types modal to appear
     XCUIElement *pickTypesModal = app.staticTexts[@"Pick Types"];

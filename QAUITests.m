@@ -3,7 +3,6 @@
 //  QAUITests
 //
 //  Created by Shawn Roller on 12/12/17.
-//  Copyright © 2017 JustFab. All rights reserved.
 //
 
 #import "QAUITests.h"
@@ -51,11 +50,11 @@
 {
     XCUIApplication *app = [[XCUIApplication alloc] init];
     XCUIElement *usernameTextField = app.textFields[@"username"];
-    [usernameTextField typeText:@"tfoxuser"];
+    [usernameTextField typeText:@"testuser"];
     
-    [app/*@START_MENU_TOKEN@*/.buttons[@"Next:"]/*[[".keyboards",".buttons[@\"Next\"]",".buttons[@\"Next:\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/ tap];
+    [app.buttons[@"Next:"];
     XCUIElement *passwordSecureTextField = app.secureTextFields[@"password"];
-    [passwordSecureTextField typeText:@"Testing222"];
+    [passwordSecureTextField typeText:@"test"];
     
     XCUIElement *loginButton = app.buttons[@"login"];
     [loginButton tap];
@@ -66,23 +65,23 @@
     XCUIApplication *app = [[XCUIApplication alloc] init];
     
     // Wait for login
-    XCUIElement *username = app.staticTexts[@"tfoxuser"];
+    XCUIElement *username = app.staticTexts[@"testuser"];
     [self waitForElementToAppear:username withTimeout:20];
     
     // Select the QA1 environment
     XCUIElement *element = [[[[[[[app childrenMatchingType:XCUIElementTypeWindow] elementBoundByIndex:0] childrenMatchingType:XCUIElementTypeOther] elementBoundByIndex:1] childrenMatchingType:XCUIElementTypeOther].element childrenMatchingType:XCUIElementTypeOther] elementBoundByIndex:1];
-    [element.images[@"iWMS Beta Icon"] tap];
+    [element.images[@"Beta Icon"] tap];
     [app.sheets[@"QA"].collectionViews.buttons[@"Select API Server"] tap];
-    [app.tables/*@START_MENU_TOKEN@*/.staticTexts[@"QA1"]/*[[".cells.staticTexts[@\"QA1\"]",".staticTexts[@\"QA1\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/ tap];
+    [app.tables.staticTexts[@"QA1"];
     
-    // Select LOU1
+    // Select FC
     if (wasNotLoggedIn) {
         [[[[[[[[[[[[[app childrenMatchingType:XCUIElementTypeWindow] elementBoundByIndex:0] childrenMatchingType:XCUIElementTypeOther] elementBoundByIndex:1] childrenMatchingType:XCUIElementTypeOther].element childrenMatchingType:XCUIElementTypeOther] elementBoundByIndex:1] childrenMatchingType:XCUIElementTypeOther].element childrenMatchingType:XCUIElementTypeOther] elementBoundByIndex:4] childrenMatchingType:XCUIElementTypeOther].element childrenMatchingType:XCUIElementTypeImage].element tap];
     }
     else {
         [[[[[[element childrenMatchingType:XCUIElementTypeOther].element childrenMatchingType:XCUIElementTypeOther] elementBoundByIndex:2] childrenMatchingType:XCUIElementTypeOther].element childrenMatchingType:XCUIElementTypeImage].element tap];
     }
-    [app.tables.staticTexts[@"LOU1"] tap];
+    [app.tables.staticTexts[@"FC"] tap];
 }
 
 #pragma mark - Helper functions
